@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <table class="table">
+  <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email id</th>
+        <th>Primary Address</th>
+        <th>Primary Phone</th>
+      </tr>
+    </thead>
+    <% @contacts.each do |contact| %>
+  
+    <tbody>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.phone %></td>
+      </tr>  
+
+    <% end %>
+      
+    </table>            
+
+
+ 

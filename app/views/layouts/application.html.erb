@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contacts_Manager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+        </div>
+        <!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <div class="nav navbar-right navbar-btn">
+            <%= link_to "All Contacts", root_path, class: "btn btn-default" %> 
+            <%= link_to new_contact_path, class: "btn btn-default" do %>
+              New Contact
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+	
+	<!-- content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <% flash.each do |type, message| %>
+            <%= content_tag :div, class: "alert alert-#{type} alert-dismissible", role: "alert" do %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <%= message %>
+            <% end %>
+          <% end %>
+
+          <%= yield %>
+          
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
